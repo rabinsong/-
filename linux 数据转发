@@ -1,0 +1,4 @@
+sudo sysctl -w net.ipv4.ip_forward=1
+sudo iptables -t nat -A POSTROUTING -j MASQUERADE
+sudo iptables -t nat -A PREROUTING -p tcp -d 192.168.173.118 --dport 80 -j DNAT --to-destination 192.168.2.22:80
+sudo iptables -t nat -A PREROUTING -p tcp -d 192.168.173.80 --dport 554 -j DNAT --to-destination 192.168.2.22:80
